@@ -22,15 +22,15 @@ impl FullAdder {
     // Calculates the result of parameter a, b and c
     pub fn calc(&self, a: bool, b: bool, c: bool) -> AdderResult {
         // Calculate first result
-        let result_1 = self.half_adder.calc(a, b);
+        let res_1 = self.half_adder.calc(a, b);
         // Calculate second result
-        let result_2 = self.half_adder.calc(result_1.sum, c);
+        let res_2 = self.half_adder.calc(res_1.sum, c);
 
         // Return the result
         return AdderResult {
-            sum: result_2.sum,
+            sum: res_2.sum,
             // Set carry to or(carry1, carry2)
-            carry: self.or_gate.calc(result_2.carry, result_1.carry),
+            carry: self.or_gate.calc(res_2.carry, res_1.carry),
         };
     }
 }
