@@ -49,7 +49,7 @@ impl RippleCarrySubtractor {
                 .expect("Failed to fetch bool");
 
             // Calculate result of the bits at index i, set the borrow bit to the calculated
-            // borrow bit and push the calculated sum to the result vec
+            // borrow bit and push the calculated diff to the result vec
             let result = self.full_sub.calc(*bit_a, *bit_b, borrow);
             borrow = result.borrow;
             res.push(result.diff);
